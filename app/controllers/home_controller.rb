@@ -11,4 +11,23 @@ class HomeController < ApplicationController
 	def alluser
 		@users = User.all
 	end
+
+	def follow
+  	celeb_id = params[:celeb_id]
+  	if current_user.can_follow celeb_id
+  		Followmapping.create(:celeb_id => celeb_id, :follower_id => current_user.id)
+  	else
+  	end
+  	return redirect_to '/users'
+  end
+
+  def un_follow
+  	celeb_id = params[:celeb_id]
+  	if current_user.can_un_follow celeb_id
+  		Followmapping.where(:celeb_id => celeb_id, :follower_id => current_user.id).first.destroy
+  	else
+  	end
+  	return redirect_to '/users'
+  end
+
 end
