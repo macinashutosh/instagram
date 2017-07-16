@@ -1,0 +1,8 @@
+<h1>Instagram</h1>
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Find users',home_alluser_path %>
+ <% @posts.each do |post| %>
+ <%=render 'post',post:post%>
+ <%=render 'like',post:post%>
+ <%=render 'comment',post:post%>
+      <%end%>

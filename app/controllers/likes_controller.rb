@@ -11,7 +11,7 @@ class LikesController < ApplicationController
 		like.destroy
 	end
 
-	return redirect_to '/posts'
+	return redirect_to '/home/index'
 
 end
 end

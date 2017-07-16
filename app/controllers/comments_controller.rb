@@ -7,6 +7,6 @@ class CommentsController < ApplicationController
     new_comment.post_id=postid
     new_comment.content=content
     new_comment.save
-    return redirect_to '/posts'
+    return redirect_to '/home/index'
 	end
 end
