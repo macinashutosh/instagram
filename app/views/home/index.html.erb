@@ -1,7 +1,11 @@
 <h1>Instagram</h1>
 <%= link_to 'New Post', new_post_path %>
+<%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
+
 <%= link_to 'Find users',home_alluser_path %>
+
  <% @posts.each do |post| %>
+ <%= link_to post.user.username ,profile_index_path(post.user.username) %>
  <%=render 'post',post:post%>
  <%=render 'like',post:post%>
  <%=render 'comment',post:post%>

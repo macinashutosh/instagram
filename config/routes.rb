@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :posts
    post 'likes/like'
+   get '/profile/index' => 'profile#index'
    post 'comments/comment'
 
   # The priority is based upon order of creation: first created -> highest priority.

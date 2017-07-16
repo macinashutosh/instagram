@@ -1,5 +1,6 @@
 <div class="user">
-<%= user.email %> <% if current_user.can_follow user.id %> 
+<%= user.username %> 
+<% if current_user.can_follow user.id %> 
 <%= link_to "Follow", url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post %>
 <% end %>
 
