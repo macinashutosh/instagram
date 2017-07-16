@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
          def follow_relation user_id
   			return UserRelations::SELF if id == user_id
-  			if FollowMapping.where(:celeb_id => user_id, :follower_id => id).length > 0
+  			if Followmapping.where(:celeb_id => user_id, :follower_id => id).length > 0
   				return UserRelations::FOLLOWED
   			else
   				return UserRelations::NOTFOLLOWED
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   		end
 
   		def followee_ids
-  			FollowMapping.where(follower_id: id).pluck(:celeb_id)
+  			Followmapping.where(follower_id: id).pluck(:celeb_id)
   		end
 
 
