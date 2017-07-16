@@ -7,7 +7,8 @@ Rails.application.routes.draw do
    post 'likes/like'
    get '/profile/index' => 'profile#index'
    post 'comments/comment'
-
+   post 'home/follow'
+   post 'home/un_follow'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
