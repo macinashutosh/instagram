@@ -3,3 +3,13 @@
 <%=user.username%>
 <%=user.fullname%>
 <%=user.posts.length%>
+<br>
+followers:
+<%= Followmapping.where(celeb_id: user.id).length%>
+<br>
+following:
+<%= Followmapping.where(follower_id: user.id).length%>
+<% posts = Post.where(user_id: user.id)%>
+ <% posts.each do |post| %>
+ <%=render 'post',post:post%>
+ <%end%>
