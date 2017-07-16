@@ -1,11 +1,11 @@
 class LikesController < ApplicationController
 		def like
-	tweet_id = params[:tweet_id]
-	like = Like.where(tweet_id: tweet_id, user_id: session[:user_id]).first
+	post_id = params[:post_id]
+	like = Like.where(post_id: post_id, user_id:current_user.id).first
 	unless like
 		like = Like.new
-		like.tweet_id = tweet_id
-		like.user_id = session[:user_id]
+		like.post_id = post_id
+		like.user_id = current_user.id
 		like.save
 	else
 		like.destroy

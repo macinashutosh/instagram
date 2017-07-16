@@ -14,17 +14,37 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user %></td>
+        <td><%= post.user.username %></td>
         <td><%= post.content %></td>
         <td><%=image_tag post.image.url(:medium)%></td>
         <td><form action="/likes/like" method="POST">
-  <input type="hidden" name="tweet_id" value="<%=@post.id %>">
-  <% if current_user.likes.where(post_id:@post.id).first %>
+  <input type="hidden" name="post_id" value="<%=post.id %>">
+     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <% if current_user.likes.where(post_id:post.id).first %>
   <input type="submit" name="submit" value="UnLike">
   <% else %>
 <input type="submit" name="submit" value="Like">
   <% end %>
 </form></td>
+<td>
+  </form>
+<ul>
+  <%(post.comments).each do |comment|%>
+  <li>
+     contents : <%=comment.content %>   by : <%=(comment.user).username%>
+  </li>
+  <%end%>
+</ul>
+<form action="/comments/comment" method="POST">
+   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+<input type="text" name="content">
+<br>
+<input type="hidden" name="postid" value="<%=post.id %>">
+<input type="submit" name="submit" value="Add Comment"> 
+</form>
+
+</td>
       </tr>
     <% end %>
   </tbody>
