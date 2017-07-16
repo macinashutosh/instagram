@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
-=======
   resources :posts
-  devise_for :users
->>>>>>> 5110364dec3a0c9644ce9ad49be07d18916d6f28
+  # root '/posts#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
