@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   		Followmapping.create(:celeb_id => celeb_id, :follower_id => current_user.id)
   	else
   	end
-  	return redirect_to 'home/alluser'
+  	 return redirect_to '/home/alluser'
   end
 
   def un_follow
@@ -27,7 +27,8 @@ class HomeController < ApplicationController
   		Followmapping.where(:celeb_id => celeb_id, :follower_id => current_user.id).first.destroy
   	else
   	end
-  	return redirect_to 'home/alluser'
+
+     return redirect_to '/home/alluser'
   end
 
 end

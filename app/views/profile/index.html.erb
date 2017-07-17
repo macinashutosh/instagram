@@ -1,4 +1,4 @@
-<% name=request.original_url.split('.').second%>
+<% name=request.original_url.split('.').last%>
 <%user=User.where(username:name).first%>
 <%=user.username%>
 <%=user.fullname%>
@@ -11,5 +11,5 @@ following:
 <%= Followmapping.where(follower_id: user.id).length%>
 <% posts = Post.where(user_id: user.id)%>
  <% posts.each do |post| %>
- <%=render 'post', post:post%>
+ <%=render 'post' , post:post%>
  <%end%>

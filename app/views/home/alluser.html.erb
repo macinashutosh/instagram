@@ -1,5 +1,13 @@
-<% @users.each do |u| %>
+<% @users.each do |user| %>
 
-<%= render 'alluser', user: u %>
+<%= user.username %> 
+<% if current_user.can_follow user.id %> 
+<%= link_to "Follow", url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post %>
+<% end %>
+
+<% if current_user.can_un_follow user.id %> 
+<%= link_to "UnFollow", url_for(controller: :home, action: :un_follow, celeb_id: user.id), method: :post %>
+<% end %>
+
 
 <% end %>
