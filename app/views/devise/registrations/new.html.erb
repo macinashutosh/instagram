@@ -1,35 +1,60 @@
-<h2>Sign up</h2>
+<div id="home_page_phone_image"><img src="/images/instagram_home_phones.png"></div>
+<div id="input_bar">
+<div id="input_form">
+<img src="/images/instagram_name.png">
+<h2>Sign up to see photos and videos from your friends.</h2>
+<div class="sign-button">Log in with Facebook</div>
+<div class="intersection">
+<div class="line-of-intersection"></div><h1>OR</h1><div class="line-of-intersection"></div>
+</div>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true ,placeholder: "Email",:class=>"input_field"%>
   </div>
   <div class="field">
-   <%= f.label :username%><br>
-   <%= f.text_field :username , autofocus: true%>
+  <%= f.text_field :fullname , autofocus: true,placeholder: "Full Name",:class=>"input_field"%>
+  </div>
+   <div class="field">
+   <%= f.text_field :username , autofocus: true,placeholder: "Username",:class=>"input_field"%>
   </div>
   <div class="field">
-  <%= f.label :fullname%><br>
-  <%= f.text_field :fullname , autofocus: true%>
+    <%= f.password_field :password, autocomplete: "off",placeholder: "Password" ,:class=>"input_field"%>
   </div>
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirm Password" ,:class=>"input_field"%>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" ,:class=>"sign-button"%>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<div id="input_form_sign_in">
+Have An Account?<div class="sign_in_link"><%= render "devise/shared/links" %></div>
+</div>
+</div>
+<style type="text/css">
+  .sign-button{
+    background-color: #3897f0;
+    width:268px;
+    height:30px;
+    border-color: #3897f0;
+    border-radius:4px;
+    color:#fff;
+    font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input_field{
+    height: 36px;
+    font-size: 14px;
+    padding-left:4px;
+    width:268px;
+    border:1px solid #efefef;;
+  }
+</style>
