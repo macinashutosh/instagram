@@ -1,26 +1,118 @@
-<h2>Log in</h2>
-
+<div class="sign_in_container">
+<div id="home_page_phone_image"><img src="/images/instagram_home_phones.png">
+<div id="home_page_phone_image_changing"></div>
+</div>
+<div id="input_bar">
+<div id="input_form">
+<img src="/images/instagram_name.png">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    
+    <%= f.email_field :email, autofocus: true , :class=>"input_field",placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <div class="field" id="password_field">
+    
+    <%= f.password_field :password, autocomplete: "off" , :class=>"input_field",placeholder: "Password"%>
+        <div id="forgot_password"><%= link_to('Forgot?', new_user_password_path, method: :get)%></div>
+  </div>  
+
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
+    
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",:class=>"sign-button" %>
   </div>
+  <div class="intersection">
+      <div class="line-of-intersection"></div><h1>OR</h1><div class="line-of-intersection"></div>
+    </div>
+
+    <div class="sign-button">Log in with Facebook</div>
+  </div>
+  
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div id="input_form_sign_up">
+Don't have an Account?<div class="sign_in_link"><%= link_to('Sign up', new_user_registration_path, method: :get)%></div>
+
+</div>
+
+</div>
+
+</div>
+<style type="text/css">
+  .sign-button{
+    background-color: #3897f0;
+    width:268px;
+    height:26px;
+    border-color: #3897f0;
+    border-radius:4px;
+    color:#fff;
+    font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input_field{
+    margin-top: 10px;
+    height: 36px;
+    font-size: 14px;
+    padding-left:4px;
+    width:268px;
+    border:1px solid #efefef;;
+  }
+</style>
+<script type="text/javascript">
+var x = 0;
+function outer(){
+  var element = $('#home_page_phone_image_changing');
+  inner1();
+          function inner1(){
+             element.removeClass("add_image5");
+             element.addClass("add_image1");
+             element.removeClass("current_image1");
+             element.addClass("current_image2");
+             console.log(1);
+             setTimeout(inner2,5000+x);
+          }
+          function inner2(){
+             element.removeClass("add_image1");
+             element.addClass("add_image2");
+             element.removeClass("current_image2");
+             element.addClass("current_image3");
+             console.log(2);
+             setTimeout(inner3,5000+x);
+          }
+          function inner3(){
+             element.removeClass("add_image2");
+             element.addClass("add_image3");
+             element.removeClass("current_image3");
+             element.addClass("current_image4");
+             console.log(3);
+             setTimeout(inner4,5000+x);
+          }
+          function inner4(){
+             element.removeClass("add_image3");
+             element.addClass("add_image4");
+             element.removeClass("current_image4");
+             element.addClass("current_image5");
+             console.log(4);
+             setTimeout(inner5,5000+x);
+          }
+          function inner5(){
+             element.removeClass("add_image4");
+             element.addClass("add_image5");
+             element.removeClass("current_image5");
+             element.addClass("current_image1");
+             console.log(5);
+             setTimeout(outer,5000+x);
+          }
+}
+outer();
+</script>
