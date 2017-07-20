@@ -1,4 +1,7 @@
-<div id="home_page_phone_image"><img src="/images/instagram_home_phones.png"></div>
+<div class="sign_up_container">
+<div id="home_page_phone_image"><img src="/images/instagram_home_phones.png">
+<div id="home_page_phone_image_changing" class="current-image"></div>
+</div>
 <div id="input_bar">
 <div id="input_form">
 <img src="/images/instagram_name.png">
@@ -37,6 +40,7 @@
 Have An Account?<div class="sign_in_link"><%= render "devise/shared/links" %></div>
 </div>
 </div>
+</div>
 <style type="text/css">
   .sign-button{
     background-color: #3897f0;
@@ -58,3 +62,51 @@ Have An Account?<div class="sign_in_link"><%= render "devise/shared/links" %></d
     border:1px solid #efefef;;
   }
 </style>
+<script type="text/javascript">
+var x = 0;
+function outer(){
+  var element = $('#home_page_phone_image_changing');
+  inner1();
+          function inner1(){
+             element.removeClass("add_image5");
+             element.addClass("add_image1");
+             element.removeClass("current_image1");
+             element.addClass("current_image2");
+             console.log(1);
+             setTimeout(inner2,5000+x);
+          }
+          function inner2(){
+             element.removeClass("add_image1");
+             element.addClass("add_image2");
+             element.removeClass("current_image2");
+             element.addClass("current_image3");
+             console.log(2);
+             setTimeout(inner3,5000+x);
+          }
+          function inner3(){
+             element.removeClass("add_image2");
+             element.addClass("add_image3");
+             element.removeClass("current_image3");
+             element.addClass("current_image4");
+             console.log(3);
+             setTimeout(inner4,5000+x);
+          }
+          function inner4(){
+             element.removeClass("add_image3");
+             element.addClass("add_image4");
+             element.removeClass("current_image4");
+             element.addClass("current_image5");
+             console.log(4);
+             setTimeout(inner5,5000+x);
+          }
+          function inner5(){
+             element.removeClass("add_image4");
+             element.addClass("add_image5");
+             element.removeClass("current_image5");
+             element.addClass("current_image1");
+             console.log(5);
+             setTimeout(outer,5000+x);
+          }
+}
+outer();
+</script>
