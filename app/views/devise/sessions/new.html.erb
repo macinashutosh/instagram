@@ -38,9 +38,8 @@
   
 <% end %>
 
-<div id="input_form_sign_up">
+<div id="input_form_sign_in">
 Don't have an Account?<div class="sign_in_link"><%= link_to('Sign up', new_user_registration_path, method: :get)%></div>
-
 </div>
 
 </div>
@@ -78,7 +77,6 @@ function outer(){
              element.addClass("add_image1");
              element.removeClass("current_image1");
              element.addClass("current_image2");
-             console.log(1);
              setTimeout(inner2,5000+x);
           }
           function inner2(){
@@ -86,7 +84,6 @@ function outer(){
              element.addClass("add_image2");
              element.removeClass("current_image2");
              element.addClass("current_image3");
-             console.log(2);
              setTimeout(inner3,5000+x);
           }
           function inner3(){
@@ -94,7 +91,6 @@ function outer(){
              element.addClass("add_image3");
              element.removeClass("current_image3");
              element.addClass("current_image4");
-             console.log(3);
              setTimeout(inner4,5000+x);
           }
           function inner4(){
@@ -102,7 +98,6 @@ function outer(){
              element.addClass("add_image4");
              element.removeClass("current_image4");
              element.addClass("current_image5");
-             console.log(4);
              setTimeout(inner5,5000+x);
           }
           function inner5(){
@@ -110,7 +105,6 @@ function outer(){
              element.addClass("add_image5");
              element.removeClass("current_image5");
              element.addClass("current_image1");
-             console.log(5);
              setTimeout(outer,5000+x);
           }
 }

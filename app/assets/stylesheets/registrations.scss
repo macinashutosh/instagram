@@ -4,7 +4,7 @@ body{	$image1:'/images/instagram_home_1.jpg';
 		$image3:'/images/instagram_home_3.jpg';
 		$image4:'/images/instagram_home_4.jpg';
 		$image5:'/images/instagram_home_5.jpg';
-		.current_image1{
+										.current_image1{
 										background-image: url($image1);
 									}
 									.current_image2{
@@ -98,7 +98,7 @@ body{	$image1:'/images/instagram_home_1.jpg';
 					flex-direction: column;
 					align-items:center;
 						border:1px solid;
-						height:550px;
+						
 						width:300px;
 						border-color: #e6e6e6;
 							.intersection{
@@ -195,8 +195,8 @@ body{	$image1:'/images/instagram_home_1.jpg';
 					flex-direction: column;
 					align-items:center;
 						border:1px solid;
-						height:340px;
-						width:370px;
+						height:350px;
+						width:120%;
 						border-color: #e6e6e6;
 
 						#password_field{
@@ -251,10 +251,10 @@ body{	$image1:'/images/instagram_home_1.jpg';
 							}
 							
 
-			#input_form_sign_up{
+			#input_form_sign_in{
 				margin-top: 10px;
 				height: 70px;
-				width: 370px;
+				width: 120%;
 				border:1px solid;
 				border-color: #e6e6e6;
 				display:flex;
