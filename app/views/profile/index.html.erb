@@ -1,15 +1,113 @@
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<title></title>
+<div class="header">
+<div class="logos">
+	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
+	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
+</div>
+<div class="search-bar">
+	<input type="text" class="_9x5sw _qy55y" placeholder="Search" value="">
+</div>
+
+<div class="links">
+	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
+	<div class="profile"><h3>Profile</h3></div>
+	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
+	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %>
+</h3></div>
+</div>
+</div>
+
+
+
 <% name=request.original_url.split('.').last%>
 <%user=User.where(username:name).first%>
-<%=user.username%>
-<%=user.fullname%>
-<%=user.posts.length%>
-s<br>
-followers:
-<%= Followmapping.where(celeb_id: user.id).length%>
-<br>
-following:
-<%= Followmapping.where(follower_id: user.id).length%>
+<div class="user-info">
+	<div class="user-profile-pic">
+	<%= image_tag('/images/9gag.jpg',:class =>"profile-pic")  %>
+	</div>
+	<div class="user-data-wrapper">
+	<div class="user-name-follow">
+		<div class="user-name"><h2><%=user.username%></h2></div>
+		<div class="user-follow">
+			<button class="_ah57t _6y2ah _frcv2 _rmr7s">Following</button></div>
+		</div>
+
+		<div class="user-follow-post-stats">
+			<div class="user-followers"><h3><%= 
+			Followmapping.where(celeb_id: user.id).length%> followers</h3></div>
+			<div class="user-followees"><h3>
+			<%= Followmapping.where(follower_id: user.id).length%> following</h3></div>
+			<div class="user-posts"><h3><%=user.posts.length%> posts</h3></div>
+		</div>
+		<div class="user-fullname-status">
+			<div class="user-fullname"><h3><%=user.fullname%></h3></div>
+			<div class="user-status"><p>follow me on all media platforms to not miss any updates</p></div>
+		</div>
+	</div>
+</div>
+
+
+
 <% posts = Post.where(user_id: user.id)%>
+<%posts.order! 'created_at DESC'%>
+<div class="user-own-posts">
  <% posts.each do |post| %>
- <%=render 'post' , post:post%>
- <%end%>
+
+
+ <div class="sample">
+ 
+        <%= link_to (image_tag post.image.url(:thumb)),profile_index_path(post.user.username),class:"my-button",  id:post.id %>
+ </div>
+
+    <div id="element_to_pop_up_<%=post.id%>" class="element_pop">
+    		<a class="b-close">x</a>
+
+ 				<div class="post-wrapper">
+ 			
+ 			<div class="post-image popup-image">
+ 				<%=image_tag post.image.url(:medium)%>
+ 			</div>
+
+ 	<div class="post-data">
+ 		<div class="post-pic-name">
+ 			<div class="user-pic">
+				<%= image_tag('/images/9gag.jpg',:class =>"post-user-profile-pic")  %>
+			</div>
+
+			<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3>
+			</div>
+		</div>
+
+		<div class="comment-wrapper">
+					<div class="comment-user"><h3><%= post.user.username %></h3></div>
+     				<div class="comment-content"><p><%= post.content %></p></div>
+		</div>
+
+<%=render 'like',post:post%>
+<br>
+<%=render 'comment',post:post%>
+
+	</div>
+				</div>
+	</div>
+    
+<%end%>
+</div>
+
+
+<script type="text/javascript">
+	;(function($) {
+        $(function() {
+            $('.my-button').bind('click', function(e) {
+                e.preventDefault();
+                console.log(this.id);
+                $('#element_to_pop_up_' + this.id).bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+</script>

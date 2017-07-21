@@ -1,0 +1,15 @@
+<br>
+<form action="/likes/like" method="POST">
+  <input type="hidden" name="post_id" value="<%=post.id %>">
+  
+     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+     <div class="like-comment-buttons">
+  <% if current_user.likes.where(post_id:post.id).first %>
+   <input type="image" class="like-button" name="submit" src="/images/heartfilled.png" border="0" alt="UnLike" />
+  <% else %>
+  <input type="image" class="like-button" name="submit" src="/images/heart.png" border="0" alt="Like" />
+<% end %>
+<div ><img class="comment-button"src="/images/comment.png"></div>
+</div>
+</form>
+<div class="like-counter"><h3><%=post.likes.length%> likes</h3></div>

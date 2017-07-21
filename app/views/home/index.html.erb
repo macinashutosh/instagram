@@ -1,12 +1,33 @@
-<h1>Instagram</h1>
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
+<link rel="stylesheet" type="text/css" href="home.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<title></title>
+<div class="header">
+<div class="logos">
+	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
+	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
+</div>
+<div class="search-bar">
+	<input type="text" class="_9x5sw _qy55y" placeholder="Search" value="">
+</div>
 
-<%= link_to 'Find users',home_alluser_path %>
+<div class="links">
+	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
+	<div class="profile"><h3>Profile</h3></div>
+	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
+	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %>
+</h3></div>
+</div>
+</div>
 
+
+
+<div class="posts">
  <% @posts.each do |post| %>
- <%= link_to post.user.username ,profile_index_path(post.user.username) %>
+<div class="post">
+ 
  <%=render 'post',post:post%>
  <%=render 'like',post:post%>
  <%=render 'comment',post:post%>
+      </div>
       <%end%>
+      </div>
