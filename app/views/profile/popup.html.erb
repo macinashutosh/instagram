@@ -1,0 +1,22 @@
+<%postid=request.original_url.split('.').last%>
+<%post=Post.find(postid)%>
+<div id="element_to_pop_up">
+	<%=post.id%>
+    </div>
+
+
+
+
+<script type="text/javascript">
+	;(function($) {
+        $(function() {
+            $('.sample').bind('click', function(e) {
+                e.preventDefault();
+                $('#element_to_pop_up').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+</script>

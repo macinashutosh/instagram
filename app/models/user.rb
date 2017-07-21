@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+
+ 
          def follow_relation user_id
   			return UserRelations::SELF if id == user_id
   			if Followmapping.where(:celeb_id => user_id, :follower_id => id).length > 0

@@ -5,8 +5,8 @@ class HomeController < ApplicationController
 		celebs = Followmapping.where(follower_id: current_user.id).pluck(:celeb_id)
 		celebs[celebs.length] = current_user.id
 		@posts=Post.where(user_id: celebs)
-		@posts.order(:created_at, :desc)
-	end
+    @posts.order! 'created_at DESC'
+  end
 
 	def alluser
 		@users = User.all

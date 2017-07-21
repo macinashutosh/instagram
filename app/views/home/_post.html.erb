@@ -1,4 +1,11 @@
-
-        <%= post.user.username %>
-        <%= post.content %>
-        <%=image_tag post.image.url(:medium)%>
+      <div class="post-header">
+	<div class="user-pic">
+		<%= image_tag('/images/9gag.jpg',:class =>"post-user-profile-pic")  %>
+		</div>
+		<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3></div>
+	</div>
+        <div class="post-image"><%=image_tag post.image.url(:medium)%></div>
+        <div class="comment-wrapper">
+	<div class="comment-user"><h3><%= post.user.username %></h3></div>
+     <div class="comment-content"><p><%= post.content %></p></div>
+</div>

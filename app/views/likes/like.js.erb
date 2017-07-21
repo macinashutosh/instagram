@@ -1,0 +1,10 @@
+var x = "<%=@value%>";
+console.log(x);
+
+if (  x =="liked"){
+$("#like_<%=@postid%>").html("<%= escape_javascript  render 'home/like',post: @post  %>");
+}
+else{
+$("#like_<%=@postid%>").html("<%= escape_javascript  render  'home/like',post: @post  %>");
+
+}
