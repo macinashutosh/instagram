@@ -1,0 +1,272 @@
+
+
+body{	$image1:'/images/instagram_home_1.jpg';
+		$image2:'/images/instagram_home_2.jpg';
+		$image3:'/images/instagram_home_3.jpg';
+		$image4:'/images/instagram_home_4.jpg';
+		$image5:'/images/instagram_home_5.jpg';
+		.current_image1{
+										background-image: url($image1);
+									}
+									.current_image2{
+										background-image: url($image2);
+									}
+									.current_image3{
+										background-image: url($image3);
+									}
+									.current_image4{
+										background-image: url($image4);
+									}
+									.current_image5{
+										background-image: url($image5);
+									}
+									.add_image1{
+										animation-name: change_image1;
+										animation-duration: 3s; 
+									}
+									.add_image2{
+										animation-name: change_image2;
+										animation-duration: 3s; 
+									}
+									.add_image3{
+										animation-name: change_image3;
+										animation-duration: 3s; 
+									}
+									.add_image4{
+										animation-name: change_image4;
+										animation-duration: 3s; 
+									}
+									.add_image5{
+										animation-name: change_image5;
+										animation-duration: 3s; 
+									}
+							 			@keyframes change_image1{
+											from {background-image:url($image1)}
+											to {background-image:url($image2)}
+										}
+										@keyframes change_image2{
+											from {background-image:url($image2)}
+											to {background-image:url($image3)}
+										}
+										@keyframes change_image3{
+											from {background-image:url($image3)}
+											to {background-image:url($image4)}
+										}
+										@keyframes change_image4{
+											from {background-image:url($image4)}
+											to {background-image:url($image5)}
+										}
+										@keyframes change_image5{
+											from {background-image:url($image5)}
+											to {background-image:url($image1)}
+										}
+	.sign_up_container{
+		height: 100vh;
+		width:100vw;
+		display: flex;
+		padding-top: 7%;
+		justify-content: center;
+		overflow: visible;
+		background-color:#fafafa; 
+
+		#home_page_phone_image{
+		padding-top:50px;
+		height: 600px;
+		width: auto;
+		position: sticky;	
+										
+					#home_page_phone_image_changing{
+										top:22.5%;
+										left:32%;
+										height:67%;
+										width: 55%;
+										position: absolute;
+										z-index:1;
+										
+										
+										background-size: cover;
+										
+									}
+									
+	    }
+
+	    #input_bar{
+		display: flex;
+		flex-direction: column;
+
+				#input_form{
+					display:flex;
+					flex-direction: column;
+					align-items:center;
+						border:1px solid;
+						height:550px;
+						width:300px;
+						border-color: #e6e6e6;
+							.intersection{
+								display:flex;
+								justify-content:center;
+								align-items:center;
+								padding-top:20px;
+								padding-bottom:20px;
+										.line-of-intersection{
+											width:90px;
+											height:1px;
+											background-color:#c7c7c7;
+											border:0px solid #000;
+										}
+										h1{
+											color:#999;
+											font-weight: 600;
+											font-size:13px;
+											margin-left:15px;
+											margin-right:15px;
+										}
+							}
+
+						    h2{	
+						    	font-size:17px;    
+						    	margin-left:5%;
+						    	margin-right:5%;
+						    	color: #999;
+    							font-weight: 600;
+						    	text-align: center;
+						    }
+							img{
+								width:200px;
+							}
+
+							.field{
+							 		
+							}
+							.actions{
+								text-align:center;
+								color:blue;
+							}
+				}
+				#input_form_sign_in{
+				margin-top: 10px;
+				height: 70px;
+				width: 300px;
+				border:1px solid;
+				border-color: #e6e6e6;
+				display:flex;
+				justify-content:center;
+				align-items:center;
+							
+				} 
+
+		}
+	}
+
+	.sign_in_container{
+			height: 100vh;
+		width:100vw;
+		display: flex;
+		padding-top: 7%;
+		justify-content: center;
+		overflow: visible;
+		background-color:#fafafa; 
+						#home_page_phone_image{
+						padding-top:50px;
+						height: 600px;
+						width: auto;
+						position: sticky;	
+										
+					#home_page_phone_image_changing{
+										top:22.5%;
+										left:32%;
+										height:67%;
+										width: 55%;
+										position: absolute;
+										z-index:1;
+										
+										
+										background-size: cover;
+									}
+				}
+
+	    #input_bar{
+		
+		display: flex;
+		flex-direction: column;
+				margin-top:140px;
+				#input_form{
+					
+					display:flex;
+					flex-direction: column;
+					align-items:center;
+						border:1px solid;
+						height:340px;
+						width:370px;
+						border-color: #e6e6e6;
+
+						#password_field{
+							position:sticky;
+								#forgot_password{
+										position:absolute;
+										font-size:15px;
+										right:10px;
+										top:20px;
+								}		
+						}
+						
+						.actions{
+								text-align:center;
+								color:blue;
+							}
+						.intersection{
+								
+								display:flex;
+								justify-content:center;
+								align-items:center;
+										.line-of-intersection{
+											width:90px;
+											height:1px;
+											background-color:#c7c7c7;
+											border:0px solid #000;
+										}
+										h1{
+											color:#999;
+											font-weight: 600;
+											font-size:13px;
+											margin-left:15px;
+											margin-right:15px;
+										}
+									}
+			}
+							h2{	
+						    	font-size:17px;    
+						    	margin-left:5%;
+						    	margin-right:5%;
+						    	color: #999;
+    							font-weight: 600;
+						    	text-align: center;
+						    }
+							img{
+								width:200px;
+								margin-top:10px;
+							}
+
+							.field{
+							 		
+							}
+							
+
+			#input_form_sign_up{
+				margin-top: 10px;
+				height: 70px;
+				width: 370px;
+				border:1px solid;
+				border-color: #e6e6e6;
+				display:flex;
+				justify-content:center;
+				align-items:center;
+							
+				} 
+
+
+			}
+
+	}
+}
+
