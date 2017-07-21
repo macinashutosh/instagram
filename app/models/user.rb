@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
+         validates :fullname , length: {minimum: 1}
+         validates :username , length: {minimum: 1}, uniqueness: true;
 
  
          def follow_relation user_id

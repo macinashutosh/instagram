@@ -1,13 +1,94 @@
+<!-- header starts here -->
+
+<link rel="stylesheet" type="text/css" href="home.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<title></title>
+<div class="header">
+<div class="logos">
+	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
+	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
+</div>
+<div class="search-bar">
+	<input type="text" class="_9x5sw _qy55y" placeholder="Search" value="">
+</div>
+
+<div class="links">
+	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
+	<div class="profile"><h3>Profile</h3></div>
+	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
+	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %>
+</h3></div>
+</div>
+</div>
+
+
+
+<!-- header ends here -->
+<div class="all_user_outer_container">
 <% @users.each do |user| %>
+<%unless user.id == current_user.id%>
+		<div class="all_users_container">
+			<div class="all_user_profile_image">
+			</div>
+			<div class="all_user_username">
+			<%= user.username %> 
+			<br>	
+				<div class="all_user_fullname"><%= user.fullname%></div>
+			</div>
+			<div class="all_user_follow_button">
+				<% if current_user.can_follow user.id %> 
+				<%= link_to image_tag("follow.png"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post %>
+				<% end %>
 
-<%= user.username %> 
-<% if current_user.can_follow user.id %> 
-<%= link_to "Follow", url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post %>
+				<% if current_user.can_un_follow user.id %> 
+				<%= link_to image_tag("following.png"), url_for(controller: :home, action: :un_follow, celeb_id: user.id), method: :post%>
+				<% end %>
+			</div>
+		</div>
 <% end %>
-
-<% if current_user.can_un_follow user.id %> 
-<%= link_to "UnFollow", url_for(controller: :home, action: :un_follow, celeb_id: user.id), method: :post %>
 <% end %>
-
-
-<% end %>
+<div>
+<style type="text/css">
+	.all_user_outer_container{
+		display: flex;
+		margin-top: 70px;
+		flex-direction: column;
+		align-items: center;
+	}
+	.all_users_container{
+		display: flex;
+		padding: 10px;
+		height:80px;
+		width: 600px;
+		flex-direction: row;
+		border-left: 1px solid;
+		border-right: 1px solid;
+		border-top: 0.5px solid;
+		border-bottom: 0.5px solid;
+		border-color: #000;
+		position: sticky;
+	}
+	.all_user_profile_image{
+		margin-left:5px;
+		margin-right: 10px; 
+		height: 60px;
+		width:60px;
+		border-radius: 60px;
+		background-color: blue;
+	}
+	.all_user_follow_button{
+		position: absolute;
+		right: 20px;
+	}
+	.all_user_username{
+		color: #262626;
+		font-size: 14px;
+    	font-weight: 600;
+    	line-height: 18px;
+	}
+	.all_user_fullname{
+		    color: #999;
+		    font-size: 14px;
+    		font-weight: 400;
+	}
+</style>

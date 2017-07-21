@@ -66,7 +66,6 @@ body{	$image1:'/images/instagram_home_1.jpg';
 		display: flex;
 		padding-top: 7%;
 		justify-content: center;
-		overflow: visible;
 		background-color:#fafafa; 
 
 		#home_page_phone_image{
@@ -99,7 +98,7 @@ body{	$image1:'/images/instagram_home_1.jpg';
 					flex-direction: column;
 					align-items:center;
 						border:1px solid;
-						
+						height:470px;
 						width:300px;
 						border-color: #e6e6e6;
 							.intersection{
@@ -195,6 +194,7 @@ body{	$image1:'/images/instagram_home_1.jpg';
 					display:flex;
 					flex-direction: column;
 					align-items:center;
+
 						border:1px solid;
 						height:350px;
 						width:120%;
@@ -218,9 +218,10 @@ body{	$image1:'/images/instagram_home_1.jpg';
 								
 								display:flex;
 								justify-content:center;
+								margin-top:20px;
 								align-items:center;
 										.line-of-intersection{
-											width:90px;
+											width:100px;
 											height:1px;
 											background-color:#c7c7c7;
 											border:0px solid #000;
