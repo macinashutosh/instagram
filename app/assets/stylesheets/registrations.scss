@@ -90,15 +90,18 @@ body{	$image1:'/images/instagram_home_1.jpg';
 	    }
 
 	    #input_bar{
-		display: flex;
-		flex-direction: column;
-
-				#input_form{
-					display:flex;
-					flex-direction: column;
-					align-items:center;
+				display: flex;
+				padding-top:40px;
+				flex-wrap:wrap;
+				overflow:visible;
+					#input_form{
+						display:flex;
+						flex-direction: column;
+						align-items:center;
+						padding-left:10%;
+						padding-right:10%;
 						border:1px solid;
-						height:470px;
+						height:530px;
 						width:300px;
 						border-color: #e6e6e6;
 							.intersection{
@@ -141,18 +144,21 @@ body{	$image1:'/images/instagram_home_1.jpg';
 								text-align:center;
 								color:blue;
 							}
-				}
-				#input_form_sign_in{
-				margin-top: 10px;
-				height: 70px;
-				width: 300px;
-				border:1px solid;
-				border-color: #e6e6e6;
-				display:flex;
-				justify-content:center;
-				align-items:center;
+							#input_form_sign_in{
+								margin-top: 10px;
+								height: 70px;
+								width: 300px;
+								border:1px solid;
+								border-color: #e6e6e6;
+								display:flex;
+								justify-content:center;
+								align-items:center;
 							
-				} 
+					} 
+
+						}
+					
+							
 
 		}
 	}
@@ -187,7 +193,9 @@ body{	$image1:'/images/instagram_home_1.jpg';
 	    #input_bar{
 		
 		display: flex;
-		flex-direction: column;
+		flex-wrap:wrap;
+		
+				overflow:visible;
 				margin-top:140px;
 				#input_form{
 					
@@ -196,8 +204,8 @@ body{	$image1:'/images/instagram_home_1.jpg';
 					align-items:center;
 
 						border:1px solid;
-						height:350px;
-						width:120%;
+						height:450px;
+						width:360px;
 						border-color: #e6e6e6;
 
 						#password_field{
@@ -234,7 +242,19 @@ body{	$image1:'/images/instagram_home_1.jpg';
 											margin-right:15px;
 										}
 									}
-			}
+
+									#input_form_sign_in{
+										margin-top: 30px;
+										height: 70px;
+										width: 100%;
+										border:1px solid;
+										border-color: #fff;
+										display:flex;
+										justify-content:center;
+										align-items:center;
+							
+									}
+						}
 							h2{	
 						    	font-size:17px;    
 						    	margin-left:5%;
@@ -253,17 +273,7 @@ body{	$image1:'/images/instagram_home_1.jpg';
 							}
 							
 
-			#input_form_sign_in{
-				margin-top: 10px;
-				height: 70px;
-				width: 120%;
-				border:1px solid;
-				border-color: #e6e6e6;
-				display:flex;
-				justify-content:center;
-				align-items:center;
-							
-				} 
+			 
 
 
 			}
