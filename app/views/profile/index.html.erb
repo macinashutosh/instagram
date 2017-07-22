@@ -31,7 +31,8 @@
 	<div class="user-name-follow">
 		<div class="user-name"><h2><%=user.username%></h2></div>
 		<div class="user-follow">
-			<button class="_ah57t _6y2ah _frcv2 _rmr7s">Following</button></div>
+			<%= link_to image_tag("#{current_user.follow_button user.id}"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post ,remote: true , id: "follow_#{user.id}"%>
+		</div>
 		</div>
 
 		<div class="user-follow-post-stats">

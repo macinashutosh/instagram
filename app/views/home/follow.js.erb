@@ -1,0 +1,12 @@
+ <%if @can_follow %>
+ 	
+ 	 console.log("follow_<%=@user%>");
+ 	 $("#follow_<%=@user%>").html("<img src='/images/following.png'>")
+ 	
+ <%end%>
+<% if @can_unfollow %>
+
+	console.log("unfollow_<%=@user%>");	
+	$("#follow_<%=@user%>").html("<img src='/images/follow.png'>");
+
+<%end%>

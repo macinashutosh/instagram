@@ -27,6 +27,17 @@ class User < ActiveRecord::Base
     		return follow_relation(user_id) == UserRelations::FOLLOWED
   		end
 
+      def follow_button user_id
+          if self.can_follow(user_id)
+              return "follow.png"
+          elsif self.can_un_follow(user_id)
+                return "following.png"
+          else
+                return "error.png"
+          end
+
+      end
+
   		def followee_ids
   			Followmapping.where(follower_id: id).pluck(:celeb_id)
   		end

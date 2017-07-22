@@ -4,7 +4,7 @@ Rails.application.routes.draw do
    
   get '/home/alluser' => 'home#alluser'
   post '/follow' => 'home#follow'
-  post '/un_follow' => 'home#un_follow'
+  #post '/un_follow' => 'home#un_follow'
    devise_for :users, :controllers => { registrations: 'registrations' }
    resources :posts
    post 'likes/like'
