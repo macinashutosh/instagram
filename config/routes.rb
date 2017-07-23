@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    devise_for :users, :controllers => { registrations: 'registrations' }
    resources :posts
    post 'likes/like'
+   post '/home/notification' => 'home#notification'
    get '/profile/index' => 'profile#index'
    get '/profile/popup' => 'profile#popup'
    post 'comments/comment'

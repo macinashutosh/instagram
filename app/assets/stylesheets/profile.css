@@ -77,6 +77,7 @@ margin-left: 15px;
 .links{
 	display: flex;
 	flex-direction: row;
+	
 }
 .users{
 	margin-left: 100px;

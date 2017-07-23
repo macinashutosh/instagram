@@ -33,6 +33,10 @@ class HomeController < ApplicationController
   	 # return redirect_to '/home/alluser'
   end
 
+  def notification
+      posts = Post.where(user_id: current_user.id).pluck(:id)
+      @notifications = Like.where(post_id: posts)
+  end
   # def un_follow
   # 	celeb_id = params[:celeb_id]
   #    @can_follow = false

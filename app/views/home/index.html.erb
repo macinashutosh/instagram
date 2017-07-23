@@ -12,10 +12,10 @@
 
 <div class="links">
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3>Profile</h3></div>
+	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "user-name" %></h3></div>
 	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
-	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %>
-</h3></div>
+	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+	<div class="notifications"><h3><%= link_to 'notifications', home_notification_path, method: :post,class: "newpost" %></h3></div>
 </div>
 </div>
 

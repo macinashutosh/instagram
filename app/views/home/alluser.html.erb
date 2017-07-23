@@ -14,10 +14,10 @@
 
 <div class="links">
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3>Profile</h3></div>
+	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "user-name" %></h3></div>
 	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
-	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %>
-</h3></div>
+	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+	<div class="notifications"><h3><%= link_to 'notifications', home_notification_path, method: :post,class: "newpost" %></h3></div>
 </div>
 </div>
 
@@ -32,10 +32,12 @@
 			<%= image_tag('/images/9gag.jpg',:class =>"profile-pic")  %>
 			</div>
 			<div class="all_user_username">
-			<%= user.username %> 
-			<br>	
-				<div class="all_user_fullname"><%= user.fullname%></div>
+			<h3><%= link_to user.username ,profile_index_path(user.username),class: "user-name1" %></h3>
+			<div class="all_user_fullname"><%= user.fullname%></div>
 			</div>
+			
+				
+			
 			<div class="all_user_follow_button">
 				 
 				<%= link_to image_tag("#{current_user.follow_button user.id}"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post ,remote: true , id: "follow_#{user.id}"%>
@@ -85,11 +87,18 @@
 		color: #262626;
 		font-size: 14px;
     	font-weight: 600;
-    	line-height: 18px;
+    	line-height: 10px;
 	}
 	.all_user_fullname{
 		    color: #999;
 		    font-size: 14px;
     		font-weight: 400;
+    		margin-left: 15px;
+	}
+	.user-name1{
+		margin-top: 10px;
+		margin-left: 15px;
+		color: black;
+    	text-decoration: none;
 	}
 </style>
