@@ -71,7 +71,7 @@ margin-left: 20px;
 .user-name{
 	margin-top:-3px;
     
-margin-left: 15px;
+margin-left: 10px;
  
 }
 .links{
@@ -80,12 +80,12 @@ margin-left: 15px;
 	
 }
 .users{
-	margin-left: 100px;
-	margin-right: 20px;
+	margin-left:100px;
+	margin-right:10px;
 }
 .newpost{
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .post-image{
 	width: 100%;
@@ -319,4 +319,7 @@ font-family: 'Source Sans Pro', sans-serif;
 	width: 600px;
 	height: 600px;
      margin-right: 20px;	
+}
+.notifications{
+margin-right:10px; 	
 }

@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
           elsif self.can_un_follow(user_id)
                 return "following.png"
           else
-                return "error.png"
+                return "follow.png"
           end
 
       end

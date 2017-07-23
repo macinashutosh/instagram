@@ -1,4 +1,4 @@
-<div class="comments">
+<div class="comments" id="comment_<%=post.id%>">
   <%(post.comments).each do |comment|%>
   <div class="comment-wrapper">
 <div class="comment-user"><h3><%=(comment.user).username%></h3></div>          
@@ -6,12 +6,12 @@
   </div>
   <%end%>
 </div>
-<form action="/comments/comment" method="POST">
+
+<form action="/comments/comment" method="POST" data-remote="true">
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 <div class="comment-add" style="height: 14px;">
-	<textarea aria-label="Add a comment…" name="content" class="_2hc0g" placeholder="Add a comment…" style="height: 18px;"></textarea>
+	<textarea aria-label="Add a comment…" name="content" id="comm"class="_2hc0g" placeholder="Add a comment…" style="height: 18px;"></textarea>
 </div>
 <input type="hidden" name="postid" value="<%=post.id %>">
 <input type="image" class="plus-button like-button" name="submit" src="/images/plus.png" border="0" alt="Like" />
 </form>
-
