@@ -13,6 +13,7 @@ font-family: 'Source Sans Pro', sans-serif;
 .header{
 	width: 100vw;
 	padding-top: 10px;
+	position: fixed;
 align-items: center;
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
@@ -220,3 +221,45 @@ padding-top:17px;
 .plus-button{
     visibility: hidden;
 }
+
+
+/*notification CSS Starts*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px;/* Location of the box */
+    right: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    position:fixed;
+    right: 22.5%;
+    top:8%;
+    border: 1px solid #888;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    display:none;
+    font-weight: bold;
+}
+
+/* notification CSS ends*/
