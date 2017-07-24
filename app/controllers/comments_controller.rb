@@ -11,8 +11,7 @@ class CommentsController < ApplicationController
     @comment=new_comment
     respond_to do |format|
     format.html{redirect_to '/home/index'}
-    format.js
-    
+    format.js {}
 end
 	end
 end

@@ -10,8 +10,20 @@
 <form action="/comments/comment" method="POST" data-remote="true">
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 <div class="comment-add" style="height: 14px;">
-	<textarea aria-label="Add a comment…" name="content" id="comm"class="_2hc0g" placeholder="Add a comment…" style="height: 18px;"></textarea>
+	<textarea aria-label="Add a comment…" name="content" id="comm_<%= post.id%>" class="_2hc0g" placeholder="Add a comment…" style="height: 18px;width: 90%" datapost="<%= post.id%>"></textarea>
 </div>
 <input type="hidden" name="postid" value="<%=post.id %>">
-<input type="image" class="plus-button like-button" name="submit" src="/images/plus.png" border="0" alt="Like" />
+<input type="image" class="plus-button like-button" id="submit_<%= post.id%>" name="submit" src="/images/plus.png" border="0" alt="Like" />
 </form>
+
+
+<script type="text/javascript">
+(function(){
+var textarea = $("textarea[datapost='<%= post.id %>']");
+textarea.on('keydown',function(event){
+	if(event.key === 'Enter'){
+		$('#submit_<%=post.id%>').trigger('click');
+	}
+});
+})();
+</script>

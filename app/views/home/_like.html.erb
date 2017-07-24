@@ -14,7 +14,18 @@
 <% end %>
 </form>
 </div>
-<div class="button-comment" ><a href="#comm_<%=post.id%>"><img class="comment-button"src="/images/comment.png"></a></div>
+<div class="button-comment" ><img id="commu_<%=post.id%>" class="comment-button"src="/images/comment.png"></div>
 <div class="like-counter"><h3><%=post.likes.length%> likes</h3></div>
 
 </div>
+<script type="text/javascript">
+
+
+var commentbutton = $("#commu_<%=post.id%>");
+commentbutton.on('click',function(event){
+	   
+		$('#commentu_<%=post.id%>').focus();
+	
+});
+
+</script>
