@@ -12,6 +12,8 @@ class HomeController < ApplicationController
 
 	def alluser
 		@users = User.all
+    posts = Post.where(user_id: current_user.id).pluck(:id)
+    @notifications = Like.where(post_id: posts)
     
 	end
 
