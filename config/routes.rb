@@ -12,6 +12,7 @@ Rails.application.routes.draw do
    get '/profile/index' => 'profile#index'
    get '/profile/popup' => 'profile#popup'
    post 'comments/comment'
+   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

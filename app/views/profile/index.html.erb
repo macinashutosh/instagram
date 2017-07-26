@@ -77,7 +77,7 @@
 	</div>
 </div>
 
-
+<%=link_to "Edit profile-pic",edit_user_registration_path%>
 
 <% posts = Post.where(user_id: user.id)%>
 <%posts.order! 'created_at DESC'%>
@@ -102,7 +102,7 @@
  	<div class="post-data">
  		<div class="post-pic-name">
  			<div class="user-pic">
-				<%= image_tag(current_user.avatar.url(:medium),:class =>"post-user-profile-pic") %>
+				<%= image_tag(current_user.avatar.url(:thumb),:class =>"post-user-profile-pic") %>
 			</div>
 
 			<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3>

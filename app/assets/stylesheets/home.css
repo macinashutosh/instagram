@@ -14,7 +14,7 @@ font-family: 'Source Sans Pro', sans-serif;
 	width: 100%;
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
-    height:auto;
+    height:77px;
    display: flex;
     flex-direction:row;
 
@@ -81,11 +81,7 @@ margin-right: 10px;
 }
 /* header ends */
 
-.user-name{
-        color:black;
-    text-decoration:none;
 
-}
 .post{
     margin-left: auto;
     margin-right: auto;
@@ -99,20 +95,27 @@ background-color: #fff;
 .post-header{
 	width: 100%;
 	height: 60px;
+    box-sizing: border-box;
 	display: flex;
-	padding: 0px;
 	flex-direction: row;
 }
 
 .user-pic{
 margin-top: 10px;
-margin-left: 20px;
+margin-left: 10px;
+margin-bottom: 2px;
 }
 .post-user-profile-pic{
 	border-radius:50%;
-	
 }
+div.user-name{
+    margin-left: 8px;
+}
+.user-name{
+        color:black;
+    text-decoration:none;
 
+}
 
 .post-image{
 	width: 100%;

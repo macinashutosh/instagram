@@ -6,14 +6,13 @@ class HomeController < ApplicationController
 		celebs[celebs.length] = current_user.id
 		@posts=Post.where(user_id: celebs)
     @posts.order! 'created_at DESC'
-    
-      posts = Post.where(user_id: current_user.id).pluck(:id)
-      @notifications = Like.where(post_id: posts)
+    posts = Post.where(user_id: current_user.id).pluck(:id)
+    @notifications = Like.where(post_id: posts)
   end
 
 	def alluser
 		@users = User.all
-
+    
 	end
 
 	def follow
