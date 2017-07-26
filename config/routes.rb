@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    post '/home/notification' => 'home#notification'
    get '/profile/index' => 'profile#index'
    get '/profile/popup' => 'profile#popup'
+   get '/home/notification' => 'home#notification'
    post 'comments/comment'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     @posts.order! 'created_at DESC'
     
       posts = Post.where(user_id: current_user.id).pluck(:id)
-      @notifications = Like.where(post_id: posts)
+     
   end
 
 	def alluser
@@ -37,6 +37,13 @@ class HomeController < ApplicationController
   end
 
   def notification
+     @notifications = Like.where(post_id: posts)
+     
+     respond_to do |format|
+      format.html{}
+      format.js {}
+      format.json{}
+      end
   end
   # def un_follow
   # 	celeb_id = params[:celeb_id]
