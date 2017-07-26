@@ -30,7 +30,7 @@
 
 <div class="noty">
 <div class="user-pic noty-pic">
-		<%= image_tag(notification.user.avatar.url(:medium),:class =>"post-user-profile-pic") %>
+		<%= image_tag(notification.user.avatar.url(:thumb),:class =>"post-user-profile-pic",:style=>"margin-left:10px;") %>
 		</div>
 <div class="noty-username">
 <h3><%=notification.user.username%></h3>
