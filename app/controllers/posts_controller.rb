@@ -6,6 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @user=current_user
+    posts = Post.where(user_id: current_user.id).pluck(:id)
+      @notifications = Like.where(post_id: posts)
   end
 
   # GET /posts/1

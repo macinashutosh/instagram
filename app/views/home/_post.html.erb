@@ -1,6 +1,6 @@
       <div class="post-header">
 	<div class="user-pic">
-		<%= image_tag('/images/9gag.jpg',:class =>"post-user-profile-pic")  %>
+	<%= image_tag(post.user.avatar.url(:thumb),:class =>"post-user-profile-pic") %>
 		</div>
 		<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3></div>
 	</div>

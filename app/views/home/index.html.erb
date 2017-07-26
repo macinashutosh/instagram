@@ -1,39 +1,55 @@
 
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<title></title>
+
 <div class="header">
+<div class="header-wrapper">
 <div class="logos">
 	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
 	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
 </div>
 <div class="search-bar">
-	<input type="text" class="_9x5sw _qy55y" placeholder="Search" value="">
+	<input type="text" class="top-search" placeholder="Search" value="">
 </div>
 
 <div class="links">
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "user-name" %></h3></div>
-	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
-	<div class="notifications newpost"><h3 id = "myBtn">Notifications </h3></div>
-	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
+	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
+	<div class="notifications"><h3 id = "myBtn">Notifications </h3></div>
+	<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
 </div>
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <span class="close">&times;</span>
-  <div class="modal-content">
+
+  <div class="modal-content noty-wrapper">
+  <% if not @notifications.nil?%>
   <% @notifications.each do |notification|%>
-<div>
-	<%=notification.user.username%> liked your Post
+
+<div class="noty">
+<div class="user-pic noty-pic">
+		<%= image_tag(notification.user.avatar.url(:medium),:class =>"post-user-profile-pic") %>
+		</div>
+<div class="noty-username">
+<h3><%=notification.user.username%></h3>
+	</div>
+	<div class="noty-type">
+		<p>liked your Post</p>
+	</div> 
 </div>
 <%end%>
-    
+
+<%else%>
+<div class="noty"><h4>Nothing to show,kid!!!</h4></div>
+    <%end%>
     
   </div>
 
 </div>
 </div>
-
+</div>
 
 
 

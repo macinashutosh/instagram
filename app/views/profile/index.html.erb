@@ -2,21 +2,46 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<title></title>
 <div class="header">
+<div class="header-wrapper">
 <div class="logos">
-	<div class="homelogo-div" ><%= link_to image_tag('/images/homelogo.png',:class =>"homelogo"),home_index_path  %></div>
-	<div class="download-div" ><%= link_to image_tag('/images/download.png',:class =>"download"),home_index_path  %></div>
+	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
+	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
 </div>
 <div class="search-bar">
-	<input type="text" class="_9x5sw _qy55y" placeholder="Search" value="">
+	<input type="text" class="top-search" placeholder="Search" value="">
 </div>
 
 <div class="links">
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "user-name" %></h3></div>
-	<div class="newpost"><h3><%= link_to 'New Post', new_post_path,class: "newpost"%></h3></div>
-	<div class="notifications"><h3><%= link_to 'Notifications', home_notification_path, method: :post,class: "newpost notifications" %></h3></div>
-	<div class="logout"><h3><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
-	
+	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
+	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
+	<div class="notifications"><h3 id = "myBtn">Notifications </h3></div>
+	<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+</div>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <span class="close">&times;</span>
+
+  <div class="modal-content noty-wrapper">
+  <% @notifications.each do |notification|%>
+<div class="noty">
+<div class="user-pic noty-pic">
+		<%= image_tag(notification.user.avatar.url(:medium),:class =>"post-user-profile-pic") %>
+		</div>
+<div class="noty-username">
+<h3><%=notification.user.username%></h3>
+	</div>
+	<div class="noty-type">
+		<p>liked your Post</p>
+	</div> 
+</div>
+<%end%>
+    
+    
+  </div>
+
+</div>
 </div>
 </div>
 
@@ -26,7 +51,7 @@
 <%user=User.where(username:name).first%>
 <div class="user-info">
 	<div class="user-profile-pic">
-	<%= image_tag('/images/9gag.jpg',:class =>"profile-pic")  %>
+	<%= image_tag(current_user.avatar.url(:medium),:class =>"profile-pic") %>
 	</div>
 	<div class="user-data-wrapper">
 	<div class="user-name-follow">
@@ -77,7 +102,7 @@
  	<div class="post-data">
  		<div class="post-pic-name">
  			<div class="user-pic">
-				<%= image_tag('/images/9gag.jpg',:class =>"post-user-profile-pic")  %>
+				<%= image_tag(current_user.avatar.url(:medium),:class =>"post-user-profile-pic") %>
 			</div>
 
 			<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3>
