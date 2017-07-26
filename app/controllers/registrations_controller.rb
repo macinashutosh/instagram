@@ -13,9 +13,8 @@ class RegistrationsController < Devise::RegistrationsController
 
 protected
   def update_resource(resource, params)
-    if user.id == current_user.id
+    
     resource.update_without_password(params)
-    else
-    end
+    
   end
 end

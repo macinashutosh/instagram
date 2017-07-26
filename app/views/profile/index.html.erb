@@ -4,8 +4,9 @@
 <div class="header">
 <div class="header-wrapper">
 <div class="logos">
-	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
-	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
+	<div class="homelogo-div" ><%=link_to (image_tag('/images/homelogo.png',:class =>"homelogo")),
+	home_index_path  %></div>
+	<div class="download-div" ><%=link_to (image_tag('/images/download.png',:class =>"download")),home_index_path %></div>
 </div>
 <div class="search-bar">
 	<input type="text" class="top-search" placeholder="Search" value="">
@@ -46,9 +47,10 @@
 </div>
 
 
-
 <% name=request.original_url.split('.').last%>
 <%user=User.where(username:name).first%>
+<div class="change-profile-pic"><%=render 'change'%></div>
+
 <div class="user-info">
 	<div class="user-profile-pic">
 	<%if user.id == current_user.id%>
@@ -76,7 +78,7 @@
 		</div>
 		<div class="user-fullname-status">
 			<div class="user-fullname"><h3><%=user.fullname%></h3></div>
-			<div class="user-status"><p>follow me on all media platforms to not miss any updates</p></div>
+			<div class="user-status"><p>follow me on all media platforms to not miss any updates</p> </div>
 		</div>
 	</div>
 </div>
@@ -132,6 +134,18 @@
 
 <script type="text/javascript">
 	;(function($) {
+        $(function() {
+            $('.user-profile-pic').bind('click', function(e) {
+                e.preventDefault();
+                $('.change-profile-pic').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+
+    ;(function($) {
         $(function() {
             $('.my-button').bind('click', function(e) {
                 e.preventDefault();

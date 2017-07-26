@@ -4,8 +4,10 @@
 <div class="header">
 <div class="header-wrapper">
 <div class="logos">
-	<div class="homelogo-div" ><%= image_tag('/images/homelogo.png',:class =>"homelogo")  %></div>
-	<div class="download-div" ><%= image_tag('/images/download.png',:class =>"download")  %></div>
+
+	<div class="homelogo-div" ><%=link_to (image_tag('/images/homelogo.png',:class =>"homelogo")),
+	home_index_path  %></div>
+	<div class="download-div" ><%=link_to (image_tag('/images/download.png',:class =>"download")),home_index_path %></div>
 </div>
 <div class="search-bar">
 	<input type="text" class="top-search" placeholder="Search" value="">

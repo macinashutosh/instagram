@@ -100,18 +100,21 @@ input, textarea, select, button, meter, progress {
 border-radius:50%;	
 }
 .user-profile-pic{
-	margin-left: 30vw;
+	
 	margin-top: 70px;
 }
 .user-name-follow{
 	display: flex;
 	margin-top: 70px;
-	margin-left:3vw; 
+	margin-left: 5%; 
 	flex-direction: row;
 }
 .user-info{
 	display: flex;
 	flex-direction: row;
+width: 600px;
+margin-left: auto;
+margin-right: auto;
 }
 .user-follow{
 	margin-left: 20px;
@@ -150,7 +153,7 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 .user-follow-post-stats{
 	display: flex;
-	margin-left: 4vw;
+	margin-left:5%;
 	flex-direction: row;
 }
 .user-followees{
@@ -160,14 +163,15 @@ font-family: 'Source Sans Pro', sans-serif;
 .user-fullname-status{
 	display: flex;
 	flex-direction: row;
-	margin-left: 4vw;
+	margin-left:5%;
 }
 .user-status{
 	margin-top: 5px;
 	margin-left: 5px;
 }
 .user-own-posts{
-	margin-left: 30vw;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 70px;
   width: 600px;
   display: grid;
@@ -196,6 +200,15 @@ font-family: 'Source Sans Pro', sans-serif;
     position:absolute;
     right:10px;
     top:5px;
+}
+.change-profile-pic{
+
+    background-color:#fff;
+    border-radius:3px;
+    color:#000;
+    display:none; 
+    width:200px;
+    height:300px;
 }
 .post-wrapper{
 	display: flex;

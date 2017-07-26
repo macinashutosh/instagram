@@ -32,6 +32,7 @@ padding-top: 10px;
 flex-direction: row;
 }
 .download{
+    margin-left: 18px;
 	width: 110px;
 	height: 40px;
     
@@ -277,10 +278,10 @@ padding-top:17px;
 
 .noty-wrapper{
 	margin-left: -423px;
-    position: absolute;
+    position:absolute;
     top: 70px;
-    max-height: 262px;
-    min-height: 50px;
+    width: 500px;
+    height: 196px;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0;
@@ -291,8 +292,7 @@ padding-top:17px;
     box-shadow: 0 0 5px rgba(0,0,0,.0975);
     display: block;
     white-space: normal;
-    width: 500px;
-    z-index: 11;
+    z-index: 16;
 }
 /* notification CSS ends*/
 .noty{
@@ -300,7 +300,6 @@ padding-top:17px;
     display: flex;
     flex-direction: row;
         border: solid 1px #e6e6e6;
-
     
 }
 .noty-type{
@@ -312,3 +311,33 @@ padding-top:17px;
 	margin-left: -5px;
 }
 
+._f8scm {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
+    height: 24px;
+   position: absolute;
+   right:500px;
+   top:63px; 
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 24px;
+    z-index: 14;
+
+}
+
+._f8scm, ._qfu95 {
+    content: ' ';
+    
+}
+._qfu95 {
+    border-color: transparent transparent #fff;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    height: 0;
+    
+    width: 0;
+    z-index: 14;
+
+}
