@@ -18,7 +18,7 @@
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
 	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
 	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
-	<div class="notifications"><h3 id = "myBtn">Notifications </h3></div>
+	<div class="notifications"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost",remote: true%></h3></div>
 	<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
 </div>
 <div id="myModal" class="modal">
@@ -26,30 +26,7 @@
   <!-- Modal content -->
   <span class="close">&times;</span>
 
-  <div class="modal-content noty-wrapper">
-   <% if not @notifications.nil?%>
-  <% @notifications.each do |notification|%>
-
-<div class="noty">
-<div class="user-pic noty-pic">
-		<%= image_tag(notification.user.avatar.url(:thumb),:class =>"post-user-profile-pic",:style=>"margin-left:10px;") %>
-		</div>
-<div class="noty-username">
-<h3><%=notification.user.username%></h3>
-	</div>
-	<div class="noty-type">
-		<p>liked your Post</p>
-	</div> 
-</div>
-<%end%>
-
-<%else%>
-<div class="noty"><h4>Nothing to show,kid!!!</h4></div>
-    <%end%>
-    
-    
-    
-  </div>
+  <div class="modal-content noty-wrapper" id="all-notifications"></div>
 
 </div>
 </div>

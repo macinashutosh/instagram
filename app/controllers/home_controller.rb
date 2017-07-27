@@ -6,8 +6,6 @@ class HomeController < ApplicationController
 		celebs[celebs.length] = current_user.id
 		@posts=Post.where(user_id: celebs)
     @posts.order! 'created_at DESC'
-    posts = Post.where(user_id: current_user.id).pluck(:id)
-    @notifications = Like.where(post_id: posts)
   end
 
 	def alluser
@@ -38,6 +36,17 @@ class HomeController < ApplicationController
   end
 
   def notification
+    posts = Post.where(user_id: current_user.id).pluck(:id)
+
+    @notifications = Like.where(post_id: posts)
+    @notifications += Comment.where(post_id: posts)
+    @notifications += Followmapping.where(celeb_id: current_user.id)
+    @notifications.sort_by! &:created_at
+    @notifications.reverse!
+    respond_to do |format|
+      format.html{redirect_to '/home/index'}
+      format.js{}
+    end
   end
   # def un_follow
   # 	celeb_id = params[:celeb_id]

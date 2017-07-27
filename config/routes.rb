@@ -3,6 +3,7 @@ Rails.application.routes.draw do
    root 'home#index'
    
   get '/home/alluser' => 'home#alluser'
+  get '/home/notification' => 'home#notification'
   post '/follow' => 'home#follow'
   #post '/un_follow' => 'home#un_follow'
    devise_for :users, :controllers => { registrations: 'registrations' }

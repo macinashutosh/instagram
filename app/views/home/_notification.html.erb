@@ -1,0 +1,40 @@
+<% if not notifications.nil?%>
+  <% notifications.each do |notification|%>
+
+
+<% unless notification.class==Followmapping%>
+<div class="noty">
+<div class="user-pic noty-pic">
+		<%= image_tag(notification.user.avatar.url(:thumb),:class =>"post-user-profile-pic",:style=>"margin-left:10px;") %>
+		</div>
+<div class="noty-username">
+<h3><%=notification.user.username%></h3>
+	</div>
+	<div class="noty-type">
+		<%if notification.class == Like%><p>liked your Post</p><%end%>
+		<%if notification.class == Comment%><p>commmented: <%=notification.content%></p><%end%>
+
+	</div> 
+</div>
+<%else%>
+<div class="noty1">
+<div class="noty1_1">
+<div class="user-pic noty-pic">
+<%user=User.where(id:notification.follower_id).first%>
+		<%= image_tag(user.avatar.url(:thumb),:class =>"post-user-profile-pic",:style=>"margin-left:10px;") %>
+		</div>
+<div class="noty-username">
+<h3><%=user.username%></h3>
+	</div>
+	<div class="noty-type">
+		<p>started following you.</p></div>
+</div>
+		<%= link_to image_tag("#{current_user.follow_button user.id}"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post ,remote: true , id: "follow_#{user.id}",class:"noty-follow-button"%>
+	</div> 
+<% end %>
+<%end%>
+
+<%else%>
+<h4>Nothing to show,kid!!!</h4>
+    <%end%>
+    
