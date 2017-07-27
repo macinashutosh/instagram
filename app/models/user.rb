@@ -25,11 +25,17 @@ class User < ActiveRecord::Base
   		end
 
   		def can_follow user_id
+          if self.id == user_id
+            return false
+          end
   			return follow_relation(user_id) == UserRelations::NOTFOLLOWED
   		end
 
   		def can_un_follow user_id
-    		return follow_relation(user_id) == UserRelations::FOLLOWED
+    		if self.id == user_id
+            return false
+          end
+        return follow_relation(user_id) == UserRelations::FOLLOWED
   		end
 
       def follow_button user_id

@@ -47,8 +47,9 @@
 	<div class="user-name-follow">
 		<div class="user-name"><h2><%=user.username%></h2></div>
 		<div class="user-follow">
-			
+			<% if (current_user.can_follow user.id)||(current_user.can_un_follow user.id)%>
 			<%= link_to image_tag("#{current_user.follow_button user.id}"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post ,remote: true , id: "follow_#{user.id}"%>
+			<%end%>
 			
 		</div>
 		</div>
