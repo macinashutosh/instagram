@@ -16,7 +16,7 @@
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
 	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
 	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
-<div class="notifications"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost",remote: true%></h3></div>
+<div class="notifications"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost has_notifications_#{current_user.has_notifications}",remote: true%></h3></div>
 <div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
 </div>
 <div id="myModal" class="modal">

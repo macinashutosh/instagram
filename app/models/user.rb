@@ -47,6 +47,18 @@ class User < ActiveRecord::Base
   			Followmapping.where(follower_id: id).pluck(:celeb_id)
   		end
 
+      def has_notifications
+          notification = Notification.where(user_id: self.id).first
+          if (notification.nil?)
+              return true
+          else
+              if notification.created_at < self.updated_at
+                return true
+              else
+                return false
+              end
+          end
+      end
 
   		class UserRelations
   			SELF = 0
