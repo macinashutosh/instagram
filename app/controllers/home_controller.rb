@@ -6,12 +6,12 @@ class HomeController < ApplicationController
 		celebs[celebs.length] = current_user.id
 		@posts=Post.where(user_id: celebs)
     @posts.order! 'created_at DESC'
-    check_notification
+    
   end
 
 	def alluser
 		@users = User.all
-    check_notification
+  
 	end
 
 	def follow
@@ -58,25 +58,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def check_notification
-      posts = Post.where(user_id: current_user.id).pluck(:id)
-       notifications = Like.where(post_id: posts)
-      notifications += Comment.where(post_id: posts)
-      notifications += Followmapping.where(celeb_id: current_user.id)
-      notifications.sort_by! &:created_at
-      notifications.reverse!
-    notification = Notification.where(user_id: current_user.id).first
-    if notification.nil?
-        Notification.create(user_id: current_user.id)
-    else
-        if notification.created_at < notifications.first.created_at
-              notification.destroy  
-        else  
-              notification.destroy  
-              Notification.create(user_id: current_user.id)
-        end
-    end
-  end
+ 
   # def un_follow
   # 	celeb_id = params[:celeb_id]
   #    @can_follow = false

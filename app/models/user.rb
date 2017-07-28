@@ -55,14 +55,28 @@ class User < ActiveRecord::Base
 
       def has_notifications
           notification = Notification.where(user_id: self.id).first
+          
+          posts = Post.where(user_id: self.id).pluck(:id)
+              notifications = Like.where(post_id: posts)
+              notifications += Comment.where(post_id: posts)
+              notifications += Followmapping.where(celeb_id: self.id)
+              unless notifications.first
+                return false
+              end
+              notifications.sort_by! &:created_at
+              notifications.reverse!
+
           if (notification.nil?)
               return true
           else
-              if notification.created_at < self.updated_at
-                return true
+              
+              if notification.created_at< notifications.first.created_at
+                  notification.destroy
+                  return true
               else
-                return false
+                  return false
               end
+               
           end
       end
 
