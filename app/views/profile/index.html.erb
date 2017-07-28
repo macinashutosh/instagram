@@ -82,10 +82,21 @@
 
     <div id="element_to_pop_up_<%=post.id%>" class="element_pop">
     		<a class="b-close">x</a>
-
+    			<form action="/likes/like" method="POST" data-remote="true" id="like-form-on-double-<%=post.id%>">
+  					<input type="hidden" name="post_id" value="<%=post.id %>">
+  
+     				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   
+  					<% if current_user.likes.where(post_id:post.id).first %>
+  					<input type="hidden" name="value" value="liked">
+   
+  					<% else %>
+    				<input type="hidden" name="value" value="like">
+					<% end %>
+				</form>	
  				<div class="post-wrapper">
  			
- 			<div class="post-image popup-image">
+ 			<div class="post-image popup-image just-to-check-double-click" id="<%=post.id%>">
  				<%=image_tag post.image.url(:medium)%>
  			</div>
 
@@ -133,7 +144,6 @@
         $(function() {
             $('.my-button').bind('click', function(e) {
                 e.preventDefault();
-                console.log(this.id);
                 $('#element_to_pop_up_' + this.id).bPopup();
 
             });
@@ -141,6 +151,20 @@
         });
 
     })(jQuery);
+
+
+    ;(function($) {
+        $(function() {
+            $('.just-to-check-double-click').bind('dblclick', function(e) {
+               	console.log(this.id);
+            	$("#like-form-on-double-"+this.id).submit();
+            });
+
+        });
+
+    })(jQuery);
+
+
     var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
