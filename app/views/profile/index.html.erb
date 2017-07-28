@@ -1,6 +1,6 @@
 
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-	<title></title>
+
 <div class="header">
 <div class="header-wrapper">
 <div class="logos">
@@ -34,7 +34,6 @@
 <% name=request.original_url.split('.').last%>
 <%user=User.where(username:name).first%>
 <div class="change-profile-pic"><%=render 'change'%></div>
-
 <div class="user-info">
 	<div class="user-profile-pic">
 	<%if user.id == current_user.id%>

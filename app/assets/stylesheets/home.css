@@ -18,6 +18,7 @@ font-family: 'Source Sans Pro', sans-serif;
    display: flex;
    position: fixed;
     flex-direction:row;
+     
 
 }
 .header-wrapper{
@@ -328,20 +329,10 @@ padding-top:17px;
     transform: rotate(45deg);
     width: 24px;
     z-index: 9;
-
 }
 
 ._qfu95 {
-    /*border-color: transparent transparent #fff;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    height: 0;
-     right:500px;
-   top:63px;
-   position: absolute;
-    width: 0;*/
     border-color: transparent transparent #fff;
-
     border-style: solid;
     border-width: 0 21px 10px;
     right:491px;
