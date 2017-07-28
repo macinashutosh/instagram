@@ -4,8 +4,29 @@
 		</div>
 		<div class="user-name"><h3><%= link_to post.user.username ,profile_index_path(post.user.username),class: "user-name" %></h3></div>
 	</div>
-        <div class="post-image"><%=image_tag post.image.url(:medium)%></div>
+        <div class="post-image" id="post-image-<%=post.id%>"><%=image_tag post.image.url(:medium)%></div>
         <div class="comment-wrapper">
 	<div class="comment-user"><h3><%= post.user.username %></h3></div>
      <div class="comment-content"><p><%= post.content %></p></div>
 </div>
+
+
+
+<form action="/likes/like" method="POST" data-remote="true" id="like-form-on-double-<%=post.id%>">
+  <input type="hidden" name="post_id" value="<%=post.id %>">
+  
+     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   
+  <% if current_user.likes.where(post_id:post.id).first %>
+  <input type="hidden" name="value" value="liked">
+   
+  <% else %>
+    <input type="hidden" name="value" value="like">
+<% end %>
+</form>
+
+<script type="text/javascript">
+	$("#post-image-<%=post.id%>").dblclick(function(){
+		$("#like-form-on-double-<%=post.id%>").submit();
+	});
+</script>

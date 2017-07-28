@@ -260,7 +260,7 @@ padding-top:17px;
     background-color: #fefefe;
     padding: 20px;
     position:fixed;
-    right: 22.5%;
+    right: 19.5%;
     top:8%;
     border: 1px solid #888;
     width: 30%;
@@ -279,8 +279,8 @@ padding-top:17px;
 
 
 .noty-wrapper{
-	margin-left: -423px;
-    position:absolute;
+	
+    position:fixed;
     top: 70px;
     width: 500px;
     height: 196px;
@@ -316,14 +316,14 @@ padding-top:17px;
 	margin-left: -5px;
 }
 
-._f8scm {
+._triangle1 {
     background: #fff;
     border: 1px solid #e6e6e6;
     -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
     box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
     height: 24px;
    position: fixed;
-   right:500px;
+   right:300px;
    top:61px; 
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -331,11 +331,11 @@ padding-top:17px;
     z-index: 9;
 }
 
-._qfu95 {
+._triangle2 {
     border-color: transparent transparent #fff;
     border-style: solid;
     border-width: 0 21px 10px;
-    right:491px;
+    right:291px;
    top:64px; 
    position: fixed;
     width: 0;
