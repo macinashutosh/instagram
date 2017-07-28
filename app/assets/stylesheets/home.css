@@ -16,6 +16,7 @@ font-family: 'Source Sans Pro', sans-serif;
     border-bottom: 1px solid rgba(0,0,0,.0975);
     height:77px;
    display: flex;
+   position: fixed;
     flex-direction:row;
 
 }
@@ -88,7 +89,7 @@ margin-right: 10px;
     margin-right: auto;
 	height: auto;
 	width: 600px;
-    margin-top: 50px;
+    margin-top: 150px;
 background-color: #fff;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
@@ -292,15 +293,18 @@ padding-top:17px;
     box-shadow: 0 0 5px rgba(0,0,0,.0975);
     display: block;
     white-space: normal;
-    z-index: 16;
+    z-index: 10;
 }
 /* notification CSS ends*/
 .noty{
 	    
     display: flex;
     flex-direction: row;
-        border: solid 1px #e6e6e6;
+        border: solid 0.5px #e6e6e6;
     
+}
+.noty1{
+   border: solid 0.5px #e6e6e6; 
 }
 .noty-type{
 	margin-top: 4px;
@@ -317,28 +321,36 @@ padding-top:17px;
     -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
     box-shadow: 0 0 5px 1px rgba(0,0,0,.0975);
     height: 24px;
-   position: absolute;
+   position: fixed;
    right:500px;
-   top:63px; 
+   top:61px; 
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     width: 24px;
-    z-index: 14;
+    z-index: 9;
 
 }
 
-._f8scm, ._qfu95 {
-    content: ' ';
-    
-}
 ._qfu95 {
-    border-color: transparent transparent #fff;
+    /*border-color: transparent transparent #fff;
     border-style: solid;
     border-width: 0 10px 10px;
     height: 0;
-    
+     right:500px;
+   top:63px;
+   position: absolute;
+    width: 0;*/
+    border-color: transparent transparent #fff;
+
+    border-style: solid;
+    border-width: 0 21px 10px;
+    right:491px;
+   top:64px; 
+   position: fixed;
     width: 0;
-    z-index: 14;
+    height:0;
+    z-index: 12;
+    
 
 }
 .noty1{
