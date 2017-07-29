@@ -18,17 +18,15 @@
 	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
 	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
 	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
-	<div class="notifications"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost has_notifications_#{current_user.has_notifications}",remote: true%></h3></div>
+	<div class="notifications w3-dropdown-click"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost has_notifications_#{current_user.has_notifications}",remote: true%></h3>
+
+    <div id="all-notifications" class="w3-dropdown-content w3-animate-zoom" style="display: none;">
+    <span class="close">&times;</span>
+    </div>
+  </div>
 	<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
 </div>
-<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <span class="close">&times;</span>
-
-  <div class="modal-content noty-wrapper" id="all-notifications"></div>
-
-</div>
 </div>
 </div>
 
@@ -113,7 +111,7 @@
 	}
 </style>
 <script type="text/javascript">
-  var modal = document.getElementById('myModal');
+  var modal = document.getElementById('all-notifications');
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -133,8 +131,9 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target != modal) {
         modal.style.display = "none";
     }
+
 }
 </script>
