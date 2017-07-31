@@ -15,16 +15,15 @@
 </div>
 
 <div class="links">
-	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
-	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
-	<div class="notifications w3-dropdown-click"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost has_notifications_#{current_user.has_notifications}",remote: true%></h3>
-
+	<div class="users"><%= link_to(image_tag('/images/compass-icon.png',:class=>"links-top-icon"),home_alluser_path,class: "users") %></div>
+	<div class="profile"><%= link_to( image_tag('/images/user-icon.png',:class=>"links-top-icon"),profile_index_path(current_user.username),class: "profile") %></div>
+<div class="notifications w3-dropdown-click"><%= link_to( image_tag('/images/heart.png',:class=>"links-top-icon"),url_for(controller: :home , action: :notification),class: "newpost",remote: true,id: "myBtn")%>
+<div class="hidden-red-dot_<%=current_user.has_notifications%>" id="top-notification-dot"></div>
     <div id="all-notifications" class="w3-dropdown-content w3-animate-zoom" style="display: none;">
     <span class="close">&times;</span>
     </div>
   </div>
-	<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+
 </div>
 
 </div>
@@ -36,6 +35,7 @@
 <% @users.each do |user| %>
 <%unless user.id == current_user.id%>
 		<div class="all_users_container">
+			<div class="all-user-name-wrapper">
 			<div class="all_user_profile_image">
 			<%= image_tag(user.avatar.url(:medium),:class =>"profile-pic") %>
 			</div>
@@ -43,7 +43,7 @@
 			<h3><%= link_to user.username ,profile_index_path(user.username),class: "user-name1" %></h3>
 			<div class="all_user_fullname"><%= user.fullname%></div>
 			</div>
-			
+			</div>
 				
 			
 			<div class="all_user_follow_button">
@@ -55,7 +55,13 @@
 <% end %>
 <% end %>
 <div>
+<div id="newpost-icon"><%= image_tag("/images/newpost.png",:class=>"newpost1")%></div>
+<div class="newpost-popup"><%=render 'posts/newpost'%></div>
 <style type="text/css">
+	.all-user-name-wrapper{
+		display: flex;
+		flex-direction: row;
+	}
 	.all_user_outer_container{
 		display: flex;
 		padding-top: 120px;
@@ -64,6 +70,7 @@
 	}
 	.all_users_container{
 		display: flex;
+		justify-content: space-between;
 		padding: 10px;
 		height:80px;
 		width: 600px;
@@ -73,7 +80,7 @@
 		border-top: 0.5px solid;
 		border-bottom: 0.5px solid;
 		border-color: #efefef;
-		position: sticky;
+		
 	}
 	.profile-pic{
 		width: 100%;
@@ -88,8 +95,7 @@
 		background-color: blue;
 	}
 	.all_user_follow_button{
-		position: absolute;
-		right: 20px;
+		
 	}
 	.all_user_username{
 		color: #262626;
@@ -111,6 +117,17 @@
 	}
 </style>
 <script type="text/javascript">
+;(function($) {
+        $(function() {
+            $('#newpost-icon').bind('click', function(e) {
+                e.preventDefault();
+                $('.newpost-popup').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
   var modal = document.getElementById('all-notifications');
 
 // Get the button that opens the modal
@@ -136,4 +153,9 @@ window.onclick = function(event) {
     }
 
 }
+$("#myBtn").click(function(){
+    console.log("hello");
+    $("#top-notification-dot").css("display","none");
+});
+
 </script>

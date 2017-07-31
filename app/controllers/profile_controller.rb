@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
 		  
 		  def index
           	@user=current_user
-          	
+          	@post=Post.new
 		  end
 		  def popup
 		  		

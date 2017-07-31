@@ -6,11 +6,13 @@ class HomeController < ApplicationController
 		celebs[celebs.length] = current_user.id
 		@posts=Post.where(user_id: celebs)
     @posts.order! 'created_at DESC'
+    @post = Post.new
     
   end
 
 	def alluser
 		@users = User.all
+    @post = Post.new
   
 	end
 

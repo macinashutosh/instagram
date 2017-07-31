@@ -13,16 +13,15 @@
 </div>
 
 <div class="links">
-	<div class="users"><h3><%= link_to 'Users',home_alluser_path,class: "users" %></h3></div>
-	<div class="profile"><h3><%= link_to 'Profile',profile_index_path(current_user.username),class: "profile" %></h3></div>
-	<div class="newpost"><h3><%= link_to 'NewPost', new_post_path,class: "newpost"%></h3></div>
-<div class="notifications w3-dropdown-click"><h3 id="myBtn"><%= link_to 'Notifications',url_for(controller: :home , action: :notification),class: "newpost has_notifications_#{current_user.has_notifications}",remote: true%></h3>
-
+	<div class="users"><%= link_to(image_tag('/images/compass-icon.png',:class=>"links-top-icon"),home_alluser_path,class: "users") %></div>
+	<div class="profile"><%= link_to( image_tag('/images/user-icon.png',:class=>"links-top-icon"),profile_index_path(current_user.username),class: "profile") %></div>
+<div class="notifications w3-dropdown-click"><%= link_to( image_tag('/images/heart.png',:class=>"links-top-icon"),url_for(controller: :home , action: :notification),class: "newpost",remote: true,id: "myBtn")%>
+<div class="hidden-red-dot_<%=current_user.has_notifications%>" id="top-notification-dot"></div>
     <div id="all-notifications" class="w3-dropdown-content w3-animate-zoom" style="display: none;">
     <span class="close">&times;</span>
     </div>
   </div>
-<div class="logout"><h3><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h3></div>
+
 </div>
 
 </div>
@@ -46,10 +45,12 @@
 		<div class="user-follow">
 			<% if (current_user.can_follow user.id)||(current_user.can_un_follow user.id)%>
 			<%= link_to image_tag("#{current_user.follow_button user.id}"), url_for(controller: :home, action: :follow, celeb_id: user.id), method: :post ,remote: true , id: "follow_#{user.id}"%>
-			<%end%>
+			<%else%>
+            <div class="profile-logout-link"><h5><%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %></h5></div>
+            <%end%>
 			
 		</div>
-		</div>
+	</div>
 
 		<div class="user-follow-post-stats">
 			<div class="user-followers"><h3><%= 
@@ -133,9 +134,26 @@
 <%end%>
 </div>
 
-
+<div id="newpost-icon"><%= image_tag("/images/newpost.png",:class=>"newpost1")%></div>
+<div class="newpost-popup"><%=render 'posts/newpost'%></div>
 <script type="text/javascript">
-	;(function($) {
+	   ;(function($) {
+        $(function() {
+            $('#newpost-icon').bind('click', function(e) {
+                e.preventDefault();
+                $('.newpost-popup').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+
+
+
+
+
+    ;(function($) {
         $(function() {
             $('.success').bind('click', function(e) {
                 e.preventDefault();
@@ -197,5 +215,10 @@ window.onclick = function(event) {
     }
 
 }
+
+$("#myBtn").click(function(){
+    console.log("hello");
+    $("#top-notification-dot").css("display","none");
+});
 
 </script>
