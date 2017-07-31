@@ -274,10 +274,11 @@ padding-top:17px;
 }
 /* notification CSS ends*/
 .noty{
-	    
+	 height:80px;   
     display: flex;
     flex-direction: row;
-        border: solid 0.5px #e6e6e6;
+    border: solid 0.5px #e6e6e6;
+    justify-content: space-between;
     
 }
 .noty1{
@@ -292,7 +293,17 @@ padding-top:17px;
 	margin-left: -5px;
 }
 
-
+.noty-text-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.noty-image{
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
 .noty1{
     display: flex;
     flex-direction: row;
@@ -309,6 +320,12 @@ padding-top:17px;
     display: flex;
     flex-direction: row;
 }
+
+.noty-username{
+    color: black;
+    text-decoration: none;
+}
+
 
 .hidden-red-dot_true{
     background: #ed4956;
