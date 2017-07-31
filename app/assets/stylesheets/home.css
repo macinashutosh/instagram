@@ -77,15 +77,23 @@ margin-right: 10px;
 .search-bar{
    margin-left:170px;
    margin-right: 170px; 
+
 }
 .top-search {
     border: solid 1px #dbdbdb;
     border-radius: 3px;
-    color: #262626;
-    font-size: 14px;
+    color: #999;
+    font-size: 16px;
     outline: none;
- z-index: 2;
-    padding: 3px 10px 3px 26px;
+    z-index: 2;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 220px;
+    background-color: #fafafa;
+    text-align: center; 
+     font-family: FontAwesome;
+    font-style: normal;
+    text-decoration: none;
 }
 /* header ends */
 

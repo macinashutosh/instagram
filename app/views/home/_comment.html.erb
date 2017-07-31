@@ -1,7 +1,7 @@
 <div class="comments" id="comment_<%=post.id%>">
   <%(post.comments).each do |comment|%>
   <div class="comment-wrapper">
-<div class="comment-user"><h3><%=(comment.user).username%></h3></div>          
+<div class="comment-user"><h3><%= link_to comment.user.username ,profile_index_path(comment.user.username),class: "noty-username" %></h3></div>          
  <div class="comment-content"><p><%=comment.content %></p></div>
   </div>
   <%end%>
