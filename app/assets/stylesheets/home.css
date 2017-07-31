@@ -41,6 +41,13 @@ flex-direction: row;
     
 
 }
+.header-partition-line{
+    height: 30px;
+    width:1px;
+    background-color: black;
+    margin-top: 3px;
+    margin-left: 25px;
+}
 .homelogo{
 	width: 35px;
 	height: 35px;
