@@ -73,19 +73,18 @@
  <% posts.each do |post| %>
 
 
- <div class="sample container my-button">
+ <div class="sample container my-button" id="<%=post.id%>">
  
-        <%= link_to (image_tag post.image.url(:thumb)),profile_index_path(post.user.username),class:" hover-image my-button",  id:post.id %>
-        <div class="overlay my-button">
-    <div class="hover-likes"><%=post.likes.length%>
-    	<i class="fa fa-heart" aria-hidden="true"></i>
+        <%= link_to (image_tag post.image.url(:thumb)),profile_index_path(post.user.username)%>
+        <div class="overlay">
+            <div class="hover-likes"><%=post.likes.length%>
+    	   <i class="fa fa-heart" aria-hidden="true"></i>
 
-    </div>
-    <div class="hover-comments"><%=post.comments.length%>
-    	<i class="fa fa-comment" aria-hidden="true"></i>
-
-    </div>
-  </div>
+            </div>
+            <div class="hover-comments"><%=post.comments.length%>
+    	       <i class="fa fa-comment" aria-hidden="true"></i>
+            </div>
+        </div>
  </div>
 
     <div id="element_to_pop_up_<%=post.id%>" class="element_pop">
