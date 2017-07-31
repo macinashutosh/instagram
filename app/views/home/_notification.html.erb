@@ -12,8 +12,8 @@
 <h3><%= link_to notification.user.username ,profile_index_path(notification.user.username),class: "noty-username" %></h3>
 	</div>
 	<div class="noty-type">
-		<%if notification.class == Like%><p>liked your Post</p><%end%>
-		<%if notification.class == Comment%><p>commmented: <%=notification.content%></p><%end%>
+		<%if notification.class == Like%><h4><p>liked your Post</p></h4><%end%>
+		<%if notification.class == Comment%><h4><p>commmented: <%=notification.content%></p></h4><%end%>
 
 	</div> 
 </div>

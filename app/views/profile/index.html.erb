@@ -1,6 +1,9 @@
-
+<% name=request.original_url.split('.').last%>
+<%user=User.where(username:name).first%>
+<%= content_for(:title,"#{user.fullname} (@#{user.username})")%>
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="header">
 <div class="header-wrapper">
 <div class="logos">
@@ -28,8 +31,8 @@
 </div>
 
 
-<% name=request.original_url.split('.').last%>
-<%user=User.where(username:name).first%>
+
+
 <div class="change-profile-pic"><%=render 'change'%></div>
 <div class="user-info">
 	<div class="user-profile-pic">
